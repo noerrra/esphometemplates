@@ -10,15 +10,15 @@
 # - Exposes gestures via events:
 #   esphome.on_gesture { button: (A), gesture: (click|double_click|button_hold) }
 # - Off-state (Background Brightness) of the LEDs is configurable via the UI
-# 
+#
 # For the below example, you need to keep the following entries in your secrets.yaml file:
 #  - wifi_ssid: "<secret>"
 #  - wifi_password: "<secret>"
 #  - ota_password: "<secret>"
 #  - api_key: "<32-byte-base-64-secret>"
-# 
+#
 # Example file (lab-office-wasw-003.yaml)
-# 
+#
 # substitutions:
 #  device_site: "lab"
 #  device_location_code: "office"
@@ -27,10 +27,10 @@
 #  device_type_name: "Wall Switch"
 #  device_number: "003"
 #  device_ip: "192.168.1.31"
-# 
+#
 # packages:
 #   base_package:
-#     url: https://github.com/mariodivece/esphometemplates/
+#     url: https://github.com/noerrra/esphometemplates/
 #     ref: main
 #     file: sonoff-m5-1g-us.yaml
 #     refresh: 0d
@@ -38,19 +38,19 @@
 
 substitutions:
   # User-required substitutions
-  device_site: "home"
-  device_location_code: "bedroom01"
-  device_location_name: "Bedroom 1"
-  device_type_code: "wasw"
-  device_type_name: "Wall Switch"
-  device_number: "044"
-  device_ip: "0.0.0.0"
+  device_site: 'home'
+  device_location_code: 'bedroom01'
+  device_location_name: 'Bedroom 1'
+  device_type_code: 'wasw'
+  device_type_name: 'Wall Switch'
+  device_number: '044'
+  device_ip: '0.0.0.0'
 
   # Project Substitutions (not intended for user substitution)
-  device_model: "Switchman M5 (1-Gang)"
-  device_make: "Sonoff"
-  package_version: "2024.2.13"
-  package_url: "github://mariodivece/esphometemplates/sonoff-m5-1g-us.yaml@main"
+  device_model: 'Switchman M5 (1-Gang)'
+  device_make: 'Sonoff'
+  package_version: '2024.2.13'
+  package_url: 'github://noerrra/esphometemplates/sonoff-m5-1g-us.yaml@main'
 
   # Relay Configurations
   relay_a_gpio: GPIO23
@@ -69,7 +69,7 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
@@ -78,11 +78,11 @@ packages:
       - standard/wifi.yaml
       - standard/internaltemp.yaml
   sonoffm5_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
-      - sonoff-m5/board.yaml 
+      - sonoff-m5/board.yaml
       - sonoff-m5/timings.yaml
       - sonoff-m5/status-led.yaml
       - sonoff-m5/backlight.yaml
@@ -92,16 +92,14 @@ packages:
       - sonoff-m5/button-a.yaml
 
 switch:
-    
   # Modify behavior of imported Relay A
   - id: !extend relay_a
     on_turn_on:
-    - switch.turn_on: led_indicator
+      - switch.turn_on: led_indicator
     on_turn_off:
-    - switch.turn_off: led_indicator
+      - switch.turn_off: led_indicator
 
 binary_sensor:
-
   # Button A
   - id: !extend button_a
     pin:

@@ -1,23 +1,22 @@
 substitutions:
   # Timing Configurations
-  timing_timer_duration: "5s"
-  timing_dimming_step: "0.5%"
-  timing_dimming_time: "10ms"
+  timing_timer_duration: '5s'
+  timing_dimming_step: '0.5%'
+  timing_dimming_time: '10ms'
 
   # Device Protection Limits
-  dimmer_max_temp: "70"
-  dimmer_max_current: "1.0"
-  dimmer_max_power: "190"
+  dimmer_max_temp: '70'
+  dimmer_max_current: '1.0'
+  dimmer_max_power: '190'
 
-  dimmer_id: "dimmer"
+  dimmer_id: 'dimmer'
 
 # Allow importing this package
 dashboard_import:
-  package_import_url: "github://mariodivece/esphometemplates/shelly-dimmer2/scripts.yaml@main"
+  package_import_url: 'github://noerrra/esphometemplates/shelly-dimmer2/scripts.yaml@main'
   import_full_config: false
 
 script:
-
   # Automatic shutdown protection script
   # Called when current, temperature or power ratings are exceeded.
   - id: script_protect_device
@@ -29,14 +28,14 @@ script:
     then:
       - light.turn_off: ${dimmer_id}
       - logger.log:
-          format: "Device turned off because %s exceeded %.1f%s"
-          args: [ 'measure_name', 'measure_value', 'measure_unit' ]
+          format: 'Device turned off because %s exceeded %.1f%s'
+          args: ['measure_name', 'measure_value', 'measure_unit']
       - homeassistant.service:
           service: persistent_notification.create
           data:
             title: "Device '${device_code}' self-protected."
           data_template:
-            message: "Device protection activated. Max measures: ${dimmer_max_temp}°C, ${dimmer_max_current}A, ${dimmer_max_power}W."
+            message: 'Device protection activated. Max measures: ${dimmer_max_temp}°C, ${dimmer_max_current}A, ${dimmer_max_power}W.'
 
   # Stops both, dim-up and dim-down limiting timers.
   - id: script_stop_dimming
@@ -73,7 +72,7 @@ script:
                 relative_brightness: -${timing_dimming_step}
                 transition_length: ${timing_dimming_time}
             - delay: ${timing_dimming_time}
-            
+
   # Executes while timer is running, light is on and brightness is in range
   - id: script_start_dimming_up
     mode: single

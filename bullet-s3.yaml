@@ -1,18 +1,18 @@
 substitutions:
   # User-required substitutions
-  device_site: "home"
-  device_location_code: "office"
-  device_location_name: "Office"
-  device_type_code: "bullets3"
-  device_type_name: "Bullet S3"
-  device_number: "40126"
-  device_ip: "10.16.40.126"
+  device_site: 'home'
+  device_location_code: 'office'
+  device_location_name: 'Office'
+  device_type_code: 'bullets3'
+  device_type_name: 'Bullet S3'
+  device_number: '40126'
+  device_ip: '10.16.40.126'
 
   # Project Substitutions (not intended for user substitution)
-  device_model: "Bullet S3"
-  device_make: "Bullet Automation"
-  package_version: "2024.4.27"
-  package_url: "github://mariodivece/esphometemplates/bullet-s3.yaml@main"
+  device_model: 'Bullet S3'
+  device_make: 'Bullet Automation'
+  package_version: '2024.4.27'
+  package_url: 'github://noerrra/esphometemplates/bullet-s3.yaml@main'
 
   log_level: INFO
 
@@ -22,7 +22,7 @@ substitutions:
   # Radar Pins
   radar_tx_pin: GPIO43
   radar_rx_pin: GPIO44
-  
+
   # I2S Audio Output Pins
   audio_out_lrclk: GPIO06
   audio_out_bclk: GPIO05
@@ -48,7 +48,7 @@ i2c:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
@@ -74,13 +74,13 @@ voice_assistant:
   speaker: audio_out
   id: assist
 
-  on_error: 
-   - if:
+  on_error:
+    - if:
         condition:
           switch.is_on: use_wake_word
         then:
           - switch.turn_off: use_wake_word
-          - switch.turn_on: use_wake_word      
+          - switch.turn_on: use_wake_word
 
   on_client_connected:
     - if:
@@ -128,7 +128,7 @@ switch:
               - voice_assistant.is_running
           then:
             - voice_assistant.start_continuous
-    
+
     on_turn_off:
       - voice_assistant.stop
       - lambda: id(assist).set_use_wake_word(false);

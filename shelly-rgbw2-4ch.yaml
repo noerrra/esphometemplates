@@ -1,20 +1,20 @@
 substitutions:
   # User-required substitutions
-  device_site: "home"
-  device_location_code: "bedroom01"
-  device_location_name: "Bedroom 1"
-  device_type_code: "4cpc"
-  device_type_name: "4ch PWM Controller"
-  device_number: "089"
-  device_ip: "0.0.0.0"
+  device_site: 'home'
+  device_location_code: 'bedroom01'
+  device_location_name: 'Bedroom 1'
+  device_type_code: '4cpc'
+  device_type_name: '4ch PWM Controller'
+  device_number: '089'
+  device_ip: '0.0.0.0'
 
-  timing_press_threshold: "300ms"
+  timing_press_threshold: '300ms'
 
   # Project Substitutions (not intended for user substitution)
-  device_model: "RGBW2"
-  device_make: "Shelly"
-  package_version: "2024.2.15"
-  package_url: "github://mariodivece/esphometemplates/shelly-rgbw2-4ch.yaml@main"
+  device_model: 'RGBW2'
+  device_make: 'Shelly'
+  package_version: '2024.2.15'
+  package_url: 'github://noerrra/esphometemplates/shelly-rgbw2-4ch.yaml@main'
 
 # Allow importing this package
 dashboard_import:
@@ -24,16 +24,16 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
       - standard/project.yaml
       - standard/diagnostics.yaml
       - standard/wifi.yaml
-      
+
   shelly_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
@@ -46,23 +46,22 @@ packages:
       - shelly-rgbw2/virtual-buttons.yaml
 
 light:
-
   - platform: monochromatic
-    name: "Channel 1 (R)"
+    name: 'Channel 1 (R)'
     id: light_ch1
     output: pwm_out_ch1
 
   - platform: monochromatic
-    name: "Channel 2 (G)"
+    name: 'Channel 2 (G)'
     id: light_ch2
     output: pwm_out_ch2
 
   - platform: monochromatic
-    name: "Channel 3 (B)"
+    name: 'Channel 3 (B)'
     id: light_ch3
     output: pwm_out_ch3
 
   - platform: monochromatic
-    name: "Channel 4 (W)"
+    name: 'Channel 4 (W)'
     id: light_ch4
     output: pwm_out_ch4

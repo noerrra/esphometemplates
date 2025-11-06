@@ -1,9 +1,9 @@
 substitutions:
-  dimmer_max_temp: "70"
+  dimmer_max_temp: '70'
 
 # Allow importing this package
 dashboard_import:
-  package_import_url: "github://mariodivece/esphometemplates/shelly-dimmer2/temperature.yaml@main"
+  package_import_url: 'github://noerrra/esphometemplates/shelly-dimmer2/temperature.yaml@main'
   import_full_config: false
 
 sensor:
@@ -11,11 +11,11 @@ sensor:
   # and setup over-temperature protection
   - platform: ntc
     sensor: temp_resistance_reading
-    name: "Temperature"
+    name: 'Temperature'
     id: temperature
-    unit_of_measurement: "°C"
+    unit_of_measurement: '°C'
     accuracy_decimals: 1
-    icon: "mdi:thermometer"
+    icon: 'mdi:thermometer'
     calibration:
       b_constant: 3350
       reference_resistance: 10kOhm
@@ -25,9 +25,9 @@ sensor:
         then:
           - script.execute:
               id: script_protect_device
-              measure_name: "temperature"
+              measure_name: 'temperature'
               measure_value: ${dimmer_max_temp}
-              measure_unit: "°C"
+              measure_unit: '°C'
 
   # Thermistor definition
   - platform: resistance
@@ -35,7 +35,7 @@ sensor:
     sensor: temp_analog_reading
     configuration: DOWNSTREAM
     resistor: 32kOhm
-  
+
   # Analog pin reading for the thermistor
   - platform: adc
     id: temp_analog_reading

@@ -1,12 +1,11 @@
 # Allow importing this package
 dashboard_import:
-  package_import_url: "github://mariodivece/esphometemplates/shelly-dimmer2/buttons.yaml@main"
+  package_import_url: 'github://noerrra/esphometemplates/shelly-dimmer2/buttons.yaml@main'
   import_full_config: false
 
 # Define virtual control buttons
 # These simply call the scripts
 button:
-
   - platform: template
     name: Start Dimming Down
     on_press:
@@ -24,4 +23,3 @@ button:
     on_press:
       then:
         - script.execute: script_stop_dimming
-

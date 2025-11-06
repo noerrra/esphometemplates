@@ -9,26 +9,26 @@
 #
 #packages:
 #  base_package:
-#    url: https://github.com/mariodivece/esphometemplates/
+#    url: https://github.com/noerrra/esphometemplates/
 #    ref: main
 #    file: petlite-v1.yaml
 #    refresh: 0d
 
 substitutions:
   # User-required substitutions
-  device_site: "valle"
-  device_location_code: "dante"
-  device_location_name: "Dante"
-  device_number: "148"
-  device_ip: "10.16.40.148"
+  device_site: 'valle'
+  device_location_code: 'dante'
+  device_location_name: 'Dante'
+  device_number: '148'
+  device_ip: '10.16.40.148'
 
   # Project Substitutions (not intended for user substitution)
-  device_type_code: "petv1"
-  device_type_name: "PetLiteV1"
-  device_model: "PetLite v1"
-  device_make: "Bullet Automation"
-  package_version: "2025.04.21"
-  package_url: "github://mariodivece/esphometemplates/petlite-v1.yaml@main"
+  device_type_code: 'petv1'
+  device_type_name: 'PetLiteV1'
+  device_model: 'PetLite v1'
+  device_make: 'Bullet Automation'
+  package_version: '2025.04.21'
+  package_url: 'github://noerrra/esphometemplates/petlite-v1.yaml@main'
 
   log_level: INFO
 
@@ -40,7 +40,7 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:

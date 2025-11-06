@@ -14,26 +14,26 @@
 #
 #packages:
 #  base_package:
-#    url: https://github.com/mariodivece/esphometemplates/
+#    url: https://github.com/noerrra/esphometemplates/
 #    ref: main
 #    file: afc-v4.yaml
 #    refresh: 0d
 
 substitutions:
   # User-required substitutions
-  device_site: "bl24"
-  device_location_code: "caracal"
-  device_location_name: "Caracal"
-  device_number: "200"
-  device_ip: "192.168.44.200"
+  device_site: 'bl24'
+  device_location_code: 'caracal'
+  device_location_name: 'Caracal'
+  device_number: '200'
+  device_ip: '192.168.44.200'
 
   # Project Substitutions (not intended for user substitution)
-  device_type_code: "afc4"
-  device_type_name: "AFC"
-  device_model: "AFC v4"
-  device_make: "Bullet Automation"
-  package_version: "2024.12.29"
-  package_url: "github://mariodivece/esphometemplates/afc-v4.yaml@main"
+  device_type_code: 'afc4'
+  device_type_name: 'AFC'
+  device_model: 'AFC v4'
+  device_make: 'Bullet Automation'
+  package_version: '2024.12.29'
+  package_url: 'github://noerrra/esphometemplates/afc-v4.yaml@main'
 
   log_level: INFO
 
@@ -57,7 +57,7 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
@@ -73,4 +73,3 @@ packages:
       - afc-v4/pwmfan-04.yaml
       - afc-v4/controller.yaml
       - afc-v4/config-ui.yaml
-      

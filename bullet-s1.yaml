@@ -4,19 +4,19 @@
 
 substitutions:
   # User-required substitutions
-  device_site: "bl24"
-  device_location_code: "office"
-  device_location_name: "Office"
-  device_type_code: "aios"
-  device_type_name: "Ambient Sensor"
-  device_number: "096"
-  device_ip: "192.168.1.11"
+  device_site: 'bl24'
+  device_location_code: 'office'
+  device_location_name: 'Office'
+  device_type_code: 'aios'
+  device_type_name: 'Ambient Sensor'
+  device_number: '096'
+  device_ip: '192.168.1.11'
 
   # Project Substitutions (not intended for user substitution)
-  device_model: "Bullet S1"
-  device_make: "Bullet Automation"
-  package_version: "2024.2.26"
-  package_url: "github://mariodivece/esphometemplates/bullet-s1.yaml@main"
+  device_model: 'Bullet S1'
+  device_make: 'Bullet Automation'
+  package_version: '2024.2.26'
+  package_url: 'github://noerrra/esphometemplates/bullet-s1.yaml@main'
 
 # Allow importing this package
 dashboard_import:
@@ -26,7 +26,7 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
@@ -35,11 +35,11 @@ packages:
       - standard/wifi.yaml
       - standard/internaltemp.yaml
   sonoffm5_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
-      - bullet-s1/board-node32s.yaml 
+      - bullet-s1/board-node32s.yaml
       - bullet-s1/radar-ld2410.yaml
       #- bullet-s1/radar-ld2410-zoning.yaml # optional
       #- bullet-s1/radar-ld2410-gate-sensors.yaml # optional

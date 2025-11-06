@@ -14,20 +14,20 @@
 #
 #packages:
 #  base_package:
-#    url: https://github.com/mariodivece/esphometemplates/
+#    url: https://github.com/noerrra/esphometemplates/
 #    ref: main
 #    file: afc-v2.yaml
 #    refresh: 0d
 
 substitutions:
   # User-required substitutions
-  device_site: "bl24"
-  device_location_code: "caracal"
-  device_location_name: "Caracal"
-  device_type_code: "afc2"
-  device_type_name: "Advanced Fan Controller"
-  device_number: "160"
-  device_ip: "10.16.16.101"
+  device_site: 'bl24'
+  device_location_code: 'caracal'
+  device_location_name: 'Caracal'
+  device_type_code: 'afc2'
+  device_type_name: 'Advanced Fan Controller'
+  device_number: '160'
+  device_ip: '10.16.16.101'
 
   # Auto controller Tuning
   temp_low: '30.0'
@@ -37,10 +37,10 @@ substitutions:
   pwm_min_power: '0.05'
 
   # Project Substitutions (not intended for user substitution)
-  device_model: "AFC V2"
-  device_make: "Bullet Automation"
-  package_version: "2024.11.29"
-  package_url: "github://mariodivece/esphometemplates/afc-v2.yaml@main"
+  device_model: 'AFC V2'
+  device_make: 'Bullet Automation'
+  package_version: '2024.11.29'
+  package_url: 'github://noerrra/esphometemplates/afc-v2.yaml@main'
 
   log_level: INFO
 
@@ -64,7 +64,7 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
@@ -82,4 +82,3 @@ packages:
       - afc/pwmfan-03.yaml
       - afc/pwmfan-04.yaml
       - afc/controller.yaml
-      

@@ -1,17 +1,16 @@
 substitutions:
   # Timing Configurations
-  timing_timer_duration: "5s"
-  timing_dimming_step: "0.5%"
-  timing_dimming_time_ms: "10"
-  master_light: "light_ch1"
+  timing_timer_duration: '5s'
+  timing_dimming_step: '0.5%'
+  timing_dimming_time_ms: '10'
+  master_light: 'light_ch1'
 
 # Allow importing this package
 dashboard_import:
-  package_import_url: "github://mariodivece/esphometemplates/shelly-rgbw2/scripts-4ch.yaml@main"
+  package_import_url: 'github://noerrra/esphometemplates/shelly-rgbw2/scripts-4ch.yaml@main'
   import_full_config: false
 
 script:
-
   # Stops both, dim-up and dim-down limiting timers.
   - id: script_stop_dimming
     then:
@@ -56,7 +55,7 @@ script:
                 id: script_sync_lights
                 transition_length_ms: ${timing_dimming_time_ms}
             - delay: ${timing_dimming_time_ms}ms
-            
+
   # Executes while timer is running, light is on and brightness is in range
   - id: script_start_dimming_up
     mode: single
@@ -126,7 +125,7 @@ script:
           : ${timing_dimming_time_ms};
 
         auto color_values = master_state->remote_values;
-        
+
         LightState* lights[] = {
           id(light_ch1),
           id(light_ch2),

@@ -1,20 +1,19 @@
-
 substitutions:
   # User-required substitutions
-  device_site: "bl24"
-  device_location_code: "office"
-  device_location_name: "Office"
-  device_type_code: "audio"
-  device_type_name: "Audio Player"
-  device_number: "112"
-  device_ip: "10.16.40.108"
+  device_site: 'bl24'
+  device_location_code: 'office'
+  device_location_name: 'Office'
+  device_type_code: 'audio'
+  device_type_name: 'Audio Player'
+  device_number: '112'
+  device_ip: '10.16.40.108'
   log_level: DEBUG
 
   # Project Substitutions (not intended for user substitution)
-  device_model: "Player S3"
-  device_make: "Bullet Automation"
-  package_version: "2024.2.26"
-  package_url: "github://mariodivece/esphometemplates/player-s3.yaml@main"
+  device_model: 'Player S3'
+  device_make: 'Bullet Automation'
+  package_version: '2024.2.26'
+  package_url: 'github://noerrra/esphometemplates/player-s3.yaml@main'
 
 # Allow importing this package
 dashboard_import:
@@ -24,7 +23,7 @@ dashboard_import:
 # Import packages
 packages:
   standard_package:
-    url: https://github.com/mariodivece/esphometemplates/
+    url: https://github.com/noerrra/esphometemplates/
     ref: main
     refresh: 0d
     files:
