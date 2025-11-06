@@ -13,7 +13,7 @@ substitutions:
   device_type_code: 'dimr'
   device_type_name: 'Dimmer'
   device_number: '089'
-  device_ip: '0.0.0.0'
+  device_ip: 'master-bedroom-dimmmer.thenoerrs.com'
 
   # Optional, device-specific substitutions
   dimmer_min_level: '470' # from 0 to 1000
