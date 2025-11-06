@@ -4,30 +4,30 @@
 
 substitutions:
   # WiFi Substitutions
-  api_key: !secret api_key
-  wifi_ssid: !secret wifi_ssid
+  api_key: !secret api_encryption_key
+  wifi_ssid: !secret iot_ssid
   wifi_password: !secret wifi_password
-  ota_password: !secret ota_password
+  ota_password: !secret esphome_ota_password
 
 # Enable Home Assistant API
 api:
   # Disable reboot if no client connected (defaults to 15min)
   reboot_timeout: 0s
   encryption:
-    key: "${api_key}"
+    key: '${api_key}'
 
 sensor:
   - platform: wifi_signal
-    name: "RSSI"
+    name: 'RSSI'
     id: sensor_rssi
     icon: 'mdi:signal'
     update_interval: 60s
-    entity_category: "diagnostic"
+    entity_category: 'diagnostic'
 
 # Enable OTA
 ota:
   - platform: esphome
-    password: "${ota_password}"
+    password: '${ota_password}'
 
 # Enable Safe Mode
 safe_mode:
@@ -36,15 +36,15 @@ safe_mode:
 wifi:
   fast_connect: false
   power_save_mode: light
-  ssid: "${wifi_ssid}"
-  password: "${wifi_password}"
-  use_address: "${device_ip}"
+  ssid: '${wifi_ssid}'
+  password: '${wifi_password}'
+  use_address: '${device_ip}'
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   # password for hostspot is the same as password for net AP (needs captive_portal)
   ap:
-    ssid: "${device_code}-setup"
-    password: "${wifi_password}"
+    ssid: '${device_code}-setup'
+    password: '${wifi_password}'
     ap_timeout: 5min
 
 captive_portal:
