@@ -39,7 +39,6 @@ wifi:
   ssid: '${wifi_ssid}'
   password: '${wifi_password}'
   use_address: '${device_ip}'
-  power_save_mode: NONE
   post_connect_roaming: false
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
