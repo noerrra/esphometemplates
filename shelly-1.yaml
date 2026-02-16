@@ -16,6 +16,15 @@ substitutions:
   package_version: '2026-02-15'
   package_url: 'github://noerrra/esphometemplates/shelly-1.yaml@main'
 
+  is_light: true
+
+  light_package_sub:
+    url: https://github.com/noerrra/esphometemplates/
+    ref: main
+    refresh: 0d
+    files:
+      - shelly-1/light_mode.yaml
+
 # Allow importing this package
 dashboard_import:
   package_import_url: ${package_url}
@@ -37,4 +46,4 @@ packages:
     refresh: 0d
     files:
       - shelly-1/board.yaml
-      - shelly-1/light_mode.yaml
+  light_package: ${ light_package_sub if is_light else {} }
