@@ -11,7 +11,7 @@ substitutions:
   device_ip: 'master-bedroom-dimmmer.thenoerrs.com'
 
   # Project Substitutions (not intended for user substitution)
-  device_model: 'Dimmer1'
+  device_model: 'Shelly1 v3'
   device_make: 'Shelly'
   package_version: '2026-02-15'
   package_url: 'github://noerrra/esphometemplates/shelly-1.yaml@main'
