@@ -1,0 +1,40 @@
+# ESPHome firmware template for Shelly Dimmer1
+
+substitutions:
+  # Required import substitutions
+  device_site: 'home'
+  device_location_code: 'bedroom01'
+  device_location_name: 'Bedroom 1'
+  device_type_code: 'dimr'
+  device_type_name: 'Dimmer'
+  device_number: '089'
+  device_ip: 'master-bedroom-dimmmer.thenoerrs.com'
+
+  # Project Substitutions (not intended for user substitution)
+  device_model: 'Dimmer1'
+  device_make: 'Shelly'
+  package_version: '2026-02-15'
+  package_url: 'github://noerrra/esphometemplates/shelly-1.yaml@main'
+
+# Allow importing this package
+dashboard_import:
+  package_import_url: ${package_url}
+  import_full_config: false
+
+# Import packages
+packages:
+  standard_package:
+    url: https://github.com/noerrra/esphometemplates/
+    ref: main
+    refresh: 0d
+    files:
+      - standard/project.yaml
+      - standard/diagnostics.yaml
+      - standard/wifi.yaml
+  shelly_package:
+    url: https://github.com/noerrra/esphometemplates/
+    ref: main
+    refresh: 0d
+    files:
+      - shelly-1/board.yaml
+      - shelly-1/light_mode.yaml
