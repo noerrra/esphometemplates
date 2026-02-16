@@ -4,7 +4,7 @@
 
 substitutions:
   log_level: INFO
-  timezone: 'America/Mexico_City'
+  timezone: 'America/New_York'
 
 # Enable logging via network and disable serial port
 logger:
