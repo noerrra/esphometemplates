@@ -1,0 +1,24 @@
+# Device Specific Config
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: shelly_1_relay
+
+light:
+  - platform: binary
+    name: "${device_name} Light"
+    output: shelly_1_relay
+    id: lightid
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO5
+      #mode: INPUT_PULLUP
+      #inverted: True
+    name: "${device_name} Switch"
+    on_state:
+      then:
+        - light.toggle: lightid
+    internal: true
+    id: switchid
