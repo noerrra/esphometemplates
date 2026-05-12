@@ -3,11 +3,6 @@ dashboard_import:
   package_import_url: 'github://noerrra/esphometemplates/shelly-plus-1/light-mode.yaml@main'
   import_full_config: false
 
-output:
-  - platform: gpio
-    id: shelly_plus_1_relay
-    pin: GPIO26
-
 light:
   - platform: binary
     name: "${device_name} Light"
