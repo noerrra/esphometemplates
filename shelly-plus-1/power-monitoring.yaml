@@ -10,7 +10,7 @@ dashboard_import:
   import_full_config: false
 
 switch:
-  - platform: gpio
+  - platform: binary
     name: "${device_name} Overtemperature Protection"
     output: shelly_plus_1_relay
     id: switchid
