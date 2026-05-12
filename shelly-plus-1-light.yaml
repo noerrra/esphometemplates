@@ -37,5 +37,5 @@ packages:
     refresh: 0d
     files:
       - shelly-plus-1/board.yaml
-      - shelly-plus-1/light_mode.yaml
+      - shelly-plus-1/light-mode.yaml
       - shelly-plus-1/power-monitoring.yaml
