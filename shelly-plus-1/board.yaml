@@ -1,0 +1,13 @@
+# Allow importing this package
+dashboard_import:
+  package_import_url: 'github://noerrra/esphometemplates/shelly-plus-1/board.yaml@main'
+  import_full_config: false
+
+esp32:
+  board: esp32doit-devkit-v1
+  framework:
+    type: esp-idf
+    sdkconfig_options:
+      CONFIG_FREERTOS_UNICORE: y
+      CONFIG_ESP32_DEFAULT_CPU_FREQ_160: y
+      CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: "160"  
