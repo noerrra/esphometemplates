@@ -1,3 +1,9 @@
+substitutions:
+  # Higher value gives lower watt readout
+  current_res: "0.001"
+  # Lower value gives lower voltage readout
+  voltage_div: "1925"
+
 # Allow importing this package
 dashboard_import:
   package_import_url: 'github://noerrra/esphometemplates/shelly-plus-1/power-monitoring.yaml@main'
