@@ -16,7 +16,7 @@ light:
 
 binary_sensor:
   - platform: gpio
-    name: "${device_name} Switch"
+    name: "${device_name} Light"
     pin: GPIO4
     on_state:
       then:
@@ -24,4 +24,4 @@ binary_sensor:
     filters:
       - delayed_on_off: 50ms
     internal: true
-    id: switchid
+    id: lightid
