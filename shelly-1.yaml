@@ -13,7 +13,7 @@ substitutions:
   # Project Substitutions (not intended for user substitution)
   device_model: 'Shelly1 v3'
   device_make: 'Shelly'
-  package_version: '2026-02-15'
+  package_version: '2026-05-12'
   package_url: 'github://noerrra/esphometemplates/shelly-1.yaml@main'
 
 # Allow importing this package
