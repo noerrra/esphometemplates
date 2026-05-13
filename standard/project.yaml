@@ -36,13 +36,9 @@ text_sensor:
     entity_category: diagnostic
 
 sensor:
-  - platform: debug
-    cpu_usage:
-      name: "CPU Usage"
-    # This provides the current clock speed
-    device_info:
-      name: "CPU Frequency"
-      entity_category: "diagnostic"
-      unit_of_measurement: "MHz"
-      accuracy_decimals: 0
-      icon: "mdi:cpu-64-bit"
+  - platform: template
+    name: "Manual CPU Frequency"
+    unit_of_measurement: "MHz"
+    update_interval: 60s
+    lambda: |-
+      return (float)esp_clk_cpu_freq() / 1000000.0;
