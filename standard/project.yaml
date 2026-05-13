@@ -43,9 +43,14 @@ sensor:
     update_interval: 60s
     lambda: |-
       #ifdef ESP32
-        // For ESP32 (including Shelly 1 Plus)
-        return (float)id(esp32_get_cpu_freq_mhz)(); 
+        #ifdef USE_ESP_IDF
+          // Correct method for ESP-IDF framework
+          return (float)esp_clk_cpu_freq() / 1000000.0f;
+        #else
+          // Correct method for Arduino framework on ESP32
+          return (float)getCpuFreqMHz();
+        #endif
       #else
-        // For ESP8266
+        // Correct method for ESP8266
         return (float)ESP.getCpuFreqMHz();
       #endif
