@@ -35,25 +35,11 @@ text_sensor:
     icon: "mdi:tag"
     entity_category: diagnostic
 
+debug:
+
 sensor:
-  - platform: template
-    name: "CPU Frequency"
-    unit_of_measurement: "MHz"
-    icon: "mdi:cpu-64-bit"
-    update_interval: 60s
-    lambda: |-
-      #if defined(USE_ESP32)
-        #if defined(USE_ESP_IDF)
-          extern "C" int esp_clk_cpu_freq(void);
-          return (float)esp_clk_cpu_freq() / 1000000.0f;
-        #else
-          // Arduino framework on ESP32
-          return (float)getCpuFreqMHz();
-        #endif
-      #elif defined(USE_ESP8266)
-        // ESP8266 framework
-        return (float)ESP.getCpuFreqMHz();
-      #else
-        // Fallback for other architectures (e.g., RP2040, BK7231)
-        return 0.0;
-      #endif
+  - platform: debug
+    device_info:
+      name: "CPU Frequency"
+      unit_of_measurement: "MHz"
+      icon: "mdi:cpu-64-bit"
