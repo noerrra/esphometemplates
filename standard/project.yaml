@@ -44,6 +44,10 @@ sensor:
     lambda: |-
       #ifdef ESP32
         #ifdef USE_ESP_IDF
+          // This tells the compiler to look in system paths
+          extern "C" {
+            #include <esp_clk.h>
+          }
           // Correct method for ESP-IDF framework
           return (float)esp_clk_cpu_freq() / 1000000.0f;
         #else
