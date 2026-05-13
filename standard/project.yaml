@@ -35,6 +35,8 @@ text_sensor:
     icon: "mdi:tag"
     entity_category: diagnostic
 
+logger:
+
 debug:
 
 sensor:
