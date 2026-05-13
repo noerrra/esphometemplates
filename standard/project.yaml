@@ -29,7 +29,11 @@ esphome:
   - priority: 900.0
     then:
       - lambda: |-
-          id(cpu_speed) = getCpuFrequencyMhz();
+          #ifdef USE_ESP8266
+            id(cpu_speed) = getCpuFrequencyMhz();
+          #elif USE_ESP32
+            id(cpu_speed) = getCpuFrequency();
+          #endif
 
 text_sensor:
   # Show firmware template version
