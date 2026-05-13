@@ -4,6 +4,8 @@ dashboard_import:
   import_full_config: false
 
 esphome:
+  includes:
+    - cpu_freq.h
   platformio_options:
     board_build.f_cpu: 160000000L
 
