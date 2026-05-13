@@ -41,11 +41,24 @@ sensor:
     unit_of_measurement: "MHz"
     icon: "mdi:cpu-64-bit"
     update_interval: 60s
+    entity_category: "diagnostic"
     lambda: |-
       #if defined(USE_ESP32)
         #if defined(USE_ESP_IDF)
-          extern "C" int esp_clk_cpu_freq(void);
-          return (float)esp_clk_cpu_freq() / 1000000.0f;
+          // ESPHome globally includes sdkconfig.h, so these macros are always available
+          #if defined(CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ)
+            return (float)CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ; // ESP-IDF v5+
+          #elif defined(CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ)
+            return (float)CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ; // Standard ESP32
+          #elif defined(CONFIG_ESP32S2_DEFAULT_CPU_FREQ_MHZ)
+            return (float)CONFIG_ESP32S2_DEFAULT_CPU_FREQ_MHZ; // ESP32-S2
+          #elif defined(CONFIG_ESP32S3_DEFAULT_CPU_FREQ_MHZ)
+            return (float)CONFIG_ESP32S3_DEFAULT_CPU_FREQ_MHZ; // ESP32-S3
+          #elif defined(CONFIG_ESP32C3_DEFAULT_CPU_FREQ_MHZ)
+            return (float)CONFIG_ESP32C3_DEFAULT_CPU_FREQ_MHZ; // ESP32-C3
+          #else
+            return 0.0; // Unknown IDF configuration
+          #endif
         #else
           // Arduino framework on ESP32
           return (float)getCpuFreqMHz();
@@ -54,6 +67,6 @@ sensor:
         // ESP8266 framework
         return (float)ESP.getCpuFreqMHz();
       #else
-        // Fallback for other architectures (e.g., RP2040, BK7231)
+        // Fallback for other chips
         return 0.0;
       #endif
