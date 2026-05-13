@@ -42,19 +42,21 @@ sensor:
     icon: "mdi:cpu-64-bit"
     update_interval: 60s
     lambda: |-
-      #ifdef ESP32
-        #ifdef USE_ESP_IDF
-          // This tells the compiler to look in system paths
+      #if defined(USE_ESP32)
+        #if defined(USE_ESP_IDF)
+          // Tells the compiler to look in ESP-IDF system paths
           extern "C" {
             #include <esp_clk.h>
           }
-          // Correct method for ESP-IDF framework
           return (float)esp_clk_cpu_freq() / 1000000.0f;
         #else
-          // Correct method for Arduino framework on ESP32
+          // Arduino framework on ESP32
           return (float)getCpuFreqMHz();
         #endif
-      #else
-        // Correct method for ESP8266
+      #elif defined(USE_ESP8266)
+        // ESP8266 framework
         return (float)ESP.getCpuFreqMHz();
+      #else
+        // Fallback for other architectures (e.g., RP2040, BK7231)
+        return 0.0;
       #endif
