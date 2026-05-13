@@ -29,7 +29,6 @@ packages:
     refresh: 0d
     files:
       - standard/project.yaml
-      - standard/diagnostics.yaml
       - standard/wifi.yaml
   shelly_package:
     url: https://github.com/noerrra/esphometemplates/
