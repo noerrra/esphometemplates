@@ -37,8 +37,15 @@ text_sensor:
 
 sensor:
   - platform: template
-    name: "Manual CPU Frequency"
+    name: "CPU Frequency"
     unit_of_measurement: "MHz"
+    icon: "mdi:cpu-64-bit"
     update_interval: 60s
     lambda: |-
-      return (float)esp_clk_cpu_freq() / 1000000.0;
+      #ifdef ESP32
+        // For ESP32 (including Shelly 1 Plus)
+        return (float)id(esp32_get_cpu_freq_mhz)(); 
+      #else
+        // For ESP8266
+        return (float)ESP.getCpuFreqMHz();
+      #endif
