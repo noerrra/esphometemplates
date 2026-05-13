@@ -25,15 +25,6 @@ esphome:
   project:
     name: "${device_make}.${device_model}"
     version: "${package_version}"
-  on_boot:
-  - priority: 900.0
-    then:
-      - lambda: |-
-          #ifdef USE_ESP8266
-            id(cpu_speed) = getCpuFrequencyMhz();
-          #elif USE_ESP32
-            id(cpu_speed) = getCpuFrequency();
-          #endif
 
 text_sensor:
   # Show firmware template version
@@ -45,13 +36,13 @@ text_sensor:
     entity_category: diagnostic
 
 sensor:
-    # Device CPU Frequency
-  - platform: template
-    name: "CPU Frequency"
-    icon: "mdi:speedometer"
-    accuracy_decimals: 0
-    unit_of_measurement: Mhz
-    disabled_by_default: false
-    lambda: |-
-      return (id(cpu_speed));
-    entity_category: diagnostic
+  - platform: debug
+    cpu_usage:
+      name: "CPU Usage"
+    # This provides the current clock speed
+    device_info:
+      name: "CPU Frequency"
+      entity_category: "diagnostic"
+      unit_of_measurement: "MHz"
+      accuracy_decimals: 0
+      icon: "mdi:cpu-64-bit"
