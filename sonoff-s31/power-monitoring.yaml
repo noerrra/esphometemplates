@@ -1,0 +1,13 @@
+# Allow importing this package
+dashboard_import:
+  package_import_url: 'github://noerrra/esphometemplates/sonoff-s31/power-monitoring.yaml@main'
+  import_full_config: false
+
+sensor:
+  - platform: cse7766
+    current: 
+      name: "${device_name} Current"
+    voltage:
+      name: "${device_name} Voltage"
+    power:
+      name: "${device_name} Power"

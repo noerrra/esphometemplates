@@ -1,0 +1,20 @@
+# Allow importing this package
+dashboard_import:
+  package_import_url: 'github://noerrra/esphometemplates/sonoff-s31/switch.yaml@main'
+  import_full_config: false
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "${device_name} Button"
+    on_press:
+      - switch.toggle: relay
+
+switch:
+  - platform: gpio
+    name: "${device_name} Relay"
+    pin: GPIO12
+    id: relay
