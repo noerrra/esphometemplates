@@ -1,0 +1,9 @@
+# Board and preferences
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: esp-idf
+  # Optional: Optimizes the compiler for size, recommended for Gen3 Shellys
+  sdkconfig_options:
+    COMPILER_OPTIMIZATION_SIZE: y

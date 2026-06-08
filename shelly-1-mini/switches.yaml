@@ -1,0 +1,17 @@
+switch:
+  - platform: gpio
+    id: relay
+    name: "Relay"
+    pin: 7
+    restore_mode: RESTORE_DEFAULT_OFF
+
+binary_sensor:
+  - platform: gpio
+    id: switch_input
+    name: "Switch Input"
+    pin: 10
+    filters:
+      # Debounce to prevent ghost toggles
+      - delayed_on_off: 50ms
+    on_press:
+      - switch.toggle: relay

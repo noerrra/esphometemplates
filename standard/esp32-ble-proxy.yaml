@@ -1,0 +1,7 @@
+# ----------------------------------------------------------------------
+# BLUETOOTH PROXY
+# Excellent for extending coverage for nearby BLE IoT devices
+# ----------------------------------------------------------------------
+esp32_ble_tracker:
+bluetooth_proxy:
+  active: true
