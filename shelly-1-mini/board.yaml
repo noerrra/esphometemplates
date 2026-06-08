@@ -4,6 +4,6 @@ esp32:
   variant: esp32c3
   framework:
     type: esp-idf
-  # Optional: Optimizes the compiler for size, recommended for Gen3 Shellys
-  sdkconfig_options:
-    COMPILER_OPTIMIZATION_SIZE: y
+    # Optional: Optimizes the compiler for size, recommended for Gen3 Shellys
+    sdkconfig_options:
+      COMPILER_OPTIMIZATION_SIZE: y
